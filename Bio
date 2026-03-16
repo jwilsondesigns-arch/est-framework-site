@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the researcher — Elastic Spacetime Theory</title>
+    <style>
+        /* --- base style — matches your existing site --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            padding: 3rem 2.5rem;
+        }
+
+        /* --- navigation (same style as your index) --- */
+        .top-nav {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 1rem;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #2a2a2a;
+            font-weight: 500;
+        }
+
+        .top-nav a:hover {
+            color: #d95f0f;   /* matches your estorange */
+        }
+
+        /* --- headings --- */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            margin-bottom: 2.5rem;
+            border-left: 4px solid #f28c38;
+            padding-left: 1.5rem;
+        }
+
+        /* --- bio paragraphs --- */
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* --- subtle line --- */
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 2.5rem 0;
+        }
+
+        /* --- back link --- */
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #f28c38;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- small print for consistency --- */
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- navigation — links back to homepage -->
+        <nav class="top-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#manuscripts">Preprints</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <h1>About the researcher</h1>
+        <div class="subhead">Jonathan E. Wilson — architect & independent researcher</div>
+
+        <!-- BIO – revised Option 2, matches your description -->
+        <p>
+            Jonathan E. Wilson is an architect based in Motherwell, Scotland, with over 20 years of experience working directly for local authorities on public‑sector projects. His portfolio—valued at over £40m—includes new‑build schools, nurseries, public housing, extensions, and the renovation and conversion of listed buildings. Like the academics he now corresponds with, his work is funded by public money and delivered in service of public benefit.
+        </p>
+
+        <p>
+            Alongside his architectural career, Wilson has maintained a lifelong interest in physics and astronomy. Trained to think in terms of structure, materials, and load paths, he approached the foundational problems of modern physics as a design challenge: given the observational constraints, what kind of physical medium could produce them? Elastic Spacetime Theory is the result of that reverse‑engineering process—treating spacetime not as abstract geometry but as a physical hyperelastic medium whose deformations and defects generate particles, forces, and cosmic structure. The framework is organised around testable predictions and designed to be falsifiable by upcoming observational data.
+        </p>
+
+        <hr>
+
+        <p style="font-size: 1rem; color: #555;">
+            📬 <strong>Contact</strong> · <a href="mailto:jonathan.wilson@est-framework.org" style="color: #f28c38;">jonathan.wilson@est-framework.org</a><br>
+            🌐 <a href="https://est-framework.org" style="color: #f28c38;">est-framework.org</a>
+        </p>
+
+        <a href="index.html" class="back-link">← Back to main page</a>
+
+        <div class="footer-note">
+            © Jonathan E. Wilson · Elastic Spacetime Theory
+        </div>
+    </div>
+</body>
+</html>
