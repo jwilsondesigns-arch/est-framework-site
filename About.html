@@ -1,139 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About the researcher — Elastic Spacetime Theory</title>
-    <style>
-        /* --- base style — matches your existing site --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About the Researcher — EST Framework</title>
+  <meta name="description" content="About Jonathan E. Wilson, architect and independent researcher behind Elastic Spacetime Theory." />
 
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background-color: #fafafa;
-            color: #1a1a1a;
-            line-height: 1.6;
-            padding: 2rem 1rem;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-            padding: 3rem 2.5rem;
-        }
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --panel: #1c1c1c;
+      --panel-2: #2a2a2a;
+      --text: #f2f2f2;
+      --muted: #b7b7b7;
+      --accent: #f28c28;
+      --accent-2: #ffad5a;
+      --border: #4a4a4a;
+      --maxw: 1180px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
 
-        /* --- navigation (same style as your index) --- */
-        .top-nav {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            font-size: 1rem;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 1rem;
-        }
+    * { box-sizing: border-box; }
 
-        .top-nav a {
-            text-decoration: none;
-            color: #2a2a2a;
-            font-weight: 500;
-        }
+    html { scroll-behavior: smooth; }
 
-        .top-nav a:hover {
-            color: #d95f0f;   /* matches your estorange */
-        }
+    body {
+      margin: 0;
+      font-family: "Jost", "Century Gothic", CenturyGothic, AppleGothic, "Trebuchet MS", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(242,140,40,0.12), transparent 28%),
+        linear-gradient(180deg, #121212 0%, #0b0b0b 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        /* --- headings --- */
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 0.5rem;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .subhead {
-            font-size: 1.2rem;
-            color: #4a4a4a;
-            margin-bottom: 2.5rem;
-            border-left: 4px solid #f28c38;
-            padding-left: 1.5rem;
-        }
+    .container {
+      width: min(100% - 2rem, var(--maxw));
+      margin-inline: auto;
+    }
 
-        /* --- bio paragraphs --- */
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,11,0.82);
+      border-bottom: 1px solid rgba(242,140,40,0.2);
+    }
 
-        /* --- subtle line --- */
-        hr {
-            border: none;
-            border-top: 1px solid #ddd;
-            margin: 2.5rem 0;
-        }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
 
-        /* --- back link --- */
-        .back-link {
-            display: inline-block;
-            margin-top: 1.5rem;
-            color: #f28c38;
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-        .back-link:hover {
-            text-decoration: underline;
-        }
+    .brand-mark {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      box-shadow: inset 0 0 16px rgba(242,140,40,0.15);
+    }
 
-        /* --- small print for consistency --- */
-        .footer-note {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: #777;
-            text-align: center;
-        }
-    </style>
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.98rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 5rem 0 2.5rem;
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(242,140,40,0.18);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -35% auto;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(242,140,40,0.18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    p {
+      margin: 0 0 1.25rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .subhead {
+      font-size: 1.15rem;
+      color: #dddddd;
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 4px solid var(--accent);
+      max-width: 52rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 1.25rem;
+      padding-bottom: 4rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--panel), #141414);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card.highlight {
+      border-color: rgba(242,140,40,0.22);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .meta-item {
+      padding: 1rem 1.1rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+    }
+
+    .meta-item strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #111;
+      box-shadow: 0 10px 25px rgba(242,140,40,0.22);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(242,140,40,0.35);
+    }
+
+    .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.3rem 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      nav ul {
+        gap: 0.75rem 1rem;
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .hero-panel,
+      .card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- navigation — links back to homepage -->
-        <nav class="top-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="index.html#manuscripts">Preprints</a>
-            <a href="index.html#contact">Contact</a>
-        </nav>
-
-        <h1>About the researcher</h1>
-        <div class="subhead">Jonathan E. Wilson — architect & independent researcher</div>
-
-        <!-- BIO – revised Option 2, matches your description -->
-        <p>
-            Jonathan E. Wilson is an architect based in Motherwell, Scotland, with over 20 years of experience working directly for local authorities on public‑sector projects. His portfolio—valued at over £40m—includes new‑build schools, nurseries, public housing, extensions, and the renovation and conversion of listed buildings. Like the academics he now corresponds with, his work is funded by public money and delivered in service of public benefit.
-        </p>
-
-        <p>
-            Alongside his architectural career, Wilson has maintained a lifelong interest in physics and astronomy. Trained to think in terms of structure, materials, and load paths, he approached the foundational problems of modern physics as a design challenge: given the observational constraints, what kind of physical medium could produce them? Elastic Spacetime Theory is the result of that reverse‑engineering process—treating spacetime not as abstract geometry but as a physical hyperelastic medium whose deformations and defects generate particles, forces, and cosmic structure. The framework is organised around testable predictions and designed to be falsifiable by upcoming observational data.
-        </p>
-
-        <hr>
-
-        <p style="font-size: 1rem; color: #555;">
-            📬 <strong>Contact</strong> · <a href="mailto:jonathan.wilson@est-framework.org" style="color: #f28c38;">jonathan.wilson@est-framework.org</a><br>
-            🌐 <a href="https://est-framework.org" style="color: #f28c38;">est-framework.org</a>
-        </p>
-
-        <a href="index.html" class="back-link">← Back to main page</a>
-
-        <div class="footer-note">
-            © Jonathan E. Wilson · Elastic Spacetime Theory
-        </div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">E</span>
+        <span>EST Framework</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#about">About EST</a></li>
+          <li><a href="about.html">Researcher</a></li>
+          <li><a href="index.html#pillars">Core Ideas</a></li>
+          <li><a href="index.html#papers">Papers</a></li>
+          <li><a href="index.html#predictions">Predictions</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-panel">
+          <span class="eyebrow">About the Researcher</span>
+          <h1>Jonathan E. Wilson</h1>
+          <div class="subhead">Architect & independent researcher working on Elastic Spacetime Theory</div>
+          <p>
+            Jonathan E. Wilson is an architect based in Motherwell, Scotland, with over 20 years of
+            experience working directly for local authorities on public-sector projects.
+          </p>
+          <div class="button-row">
+            <a class="button primary" href="mailto:jonathan.wilson@est-framework.org">Email</a>
+            <a class="button secondary" href="index.html">Back to homepage</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container content-grid">
+        <article class="card highlight">
+          <h2>Biography</h2>
+          <p>
+            Jonathan E. Wilson is an architect based in Motherwell, Scotland, with over 20 years of
+            experience working directly for local authorities on public-sector projects. His portfolio,
+            valued at over £40m, includes new-build schools, nurseries, public housing, extensions,
+            and the renovation and conversion of listed buildings. Like the academics he now corresponds
+            with, his work is funded by public money and delivered in service of public benefit.
+          </p>
+          <p>
+            Alongside his architectural career, Wilson has maintained a lifelong interest in physics
+            and astronomy. Trained to think in terms of structure, materials, and load paths, he approached
+            the foundational problems of modern physics as a design challenge: given the observational
+            constraints, what kind of physical medium could produce them?
+          </p>
+          <p>
+            Elastic Spacetime Theory is the result of that reverse-engineering process, treating spacetime
+            not as abstract geometry but as a physical hyperelastic medium whose deformations and defects
+            generate particles, forces, and cosmic structure. The framework is organised around testable
+            predictions and designed to be falsifiable by upcoming observational data.
+          </p>
+        </article>
+
+        <aside class="card">
+          <h3>Research profile</h3>
+          <div class="meta-list">
+            <div class="meta-item">
+              <strong>Base</strong>
+              Motherwell, Scotland
+            </div>
+            <div class="meta-item">
+              <strong>Professional background</strong>
+              Architecture, public-sector delivery, historic refurbishment, schools, nurseries and housing
+            </div>
+            <div class="meta-item">
+              <strong>Research focus</strong>
+              Elastic Spacetime Theory, cosmology, particle structure, geometric ontology
+            </div>
+            <div class="meta-item">
+              <strong>Website</strong>
+              <a href="https://est-framework.org" style="color: var(--accent);">est-framework.org</a>
+            </div>
+            <div class="meta-item">
+              <strong>Contact</strong>
+              <a href="mailto:jonathan.wilson@est-framework.org" style="color: var(--accent);">jonathan.wilson@est-framework.org</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-note">
+    <div class="container">
+      © Jonathan E. Wilson · Elastic Spacetime Theory
+    </div>
+  </footer>
 </body>
 </html>
