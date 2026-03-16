@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EST Dictionary — EST Framework</title>
+  <meta name="description" content="A glossary translating standard physics terms into Elastic Spacetime Theory interpretations." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --panel: #1c1c1c;
+      --text: #f2f2f2;
+      --muted: #b7b7b7;
+      --accent: #f28c28;
+      --accent-2: #ffad5a;
+      --maxw: 1180px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Jost", "Century Gothic", CenturyGothic, AppleGothic, "Trebuchet MS", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(242,140,40,0.12), transparent 28%),
+        linear-gradient(180deg, #121212 0%, #0b0b0b 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--maxw));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,11,0.82);
+      border-bottom: 1px solid rgba(242,140,40,0.2);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      box-shadow: inset 0 0 16px rgba(242,140,40,0.15);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.98rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 5rem 0 2.5rem;
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(242,140,40,0.18);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -35% auto;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(242,140,40,0.18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      max-width: 14ch;
+    }
+
+    p {
+      margin: 0 0 1.25rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .dictionary-section {
+      padding-bottom: 4rem;
+    }
+
+    .dictionary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .term-card {
+      background: linear-gradient(180deg, rgba(242,140,40,0.14), rgba(242,140,40,0.08));
+      border: 1px solid rgba(242,140,40,0.3);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .term-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(242,140,40,0.65);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.32);
+    }
+
+    .term-card summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.15rem 1.2rem;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #111;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      user-select: none;
+      position: relative;
+    }
+
+    .term-card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .term-card summary::after {
+      content: "+";
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #111;
+      transition: transform 0.2s ease;
+    }
+
+    .term-card[open] summary::after {
+      content: "–";
+    }
+
+    .term-body {
+      background: linear-gradient(180deg, var(--panel), #141414);
+      color: var(--text);
+      padding: 1rem 1.2rem 1.2rem;
+      border-top: 1px solid rgba(242,140,40,0.2);
+    }
+
+    .term-body p {
+      margin-bottom: 0.8rem;
+    }
+
+    .term-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .term-label {
+      color: var(--accent);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.82rem;
+    }
+
+    .note {
+      margin-top: 2rem;
+      padding: 1rem 1.2rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.3rem 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .term-card:hover .term-body {
+        display: block;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .dictionary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      nav ul {
+        gap: 0.75rem 1rem;
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .hero-panel {
+        padding: 1.25rem;
+      }
+
+      .dictionary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">E</span>
+        <span>EST Framework</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#about">About EST</a></li>
+          <li><a href="about.html">Researcher</a></li>
+          <li><a href="papers.html">Papers</a></li>
+          <li><a href="dictionary.html">Dictionary</a></li>
+          <li><a href="index.html#predictions">Predictions</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-panel">
+          <span class="eyebrow">EST Dictionary</span>
+          <h1>Standard terms translated into EST language</h1>
+          <p>
+            This page provides a compact glossary for readers approaching Elastic
+            Spacetime Theory for the first time. Each term gives a familiar physics
+            label alongside the corresponding EST interpretation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dictionary-section">
+      <div class="container">
+        <div class="dictionary-grid">
+
+          <details class="term-card">
+            <summary>Spacetime</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>Not an abstract passive stage, but a physical hyperelastic medium whose deformation carries physical structure.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Gravity</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>Gravity is treated as a large-scale response of the medium to tension gradients and elastic stress, rather than as a separately fundamental interaction.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Particle</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>A particle is an extended, stable excitation or defect of the medium rather than an ideal point with unexplained intrinsic properties.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Photon</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>A propagating wave mode of the medium, with polarisation arising from structured degrees of freedom of that mode.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Mass</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>Mass reflects the confined energy and stable geometric strain structure of a bounded excitation in the medium.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Charge</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>Charge corresponds to a persistent directional or topological property of an excitation, not an arbitrary label attached from outside.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Spin</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>Spin is interpreted geometrically through internal structured motion, twist, or orientation of a bounded excitation of the medium.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Neutrino</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>A topological screw-dislocation-like excitation, giving a geometric route to its weak interaction and mass hierarchy behaviour.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Dark energy</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>An emergent large-scale void-pressure effect within the medium, rather than a separate vacuum-energy fluid inserted by hand.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Quantum mechanics</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>Quantum behaviour is treated as the constrained mode structure, interference, and threshold response of a real medium, rather than as irreducible mystery.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Void lattice</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>Large cosmic voids are treated as structured cells of an elastically organised medium, with a characteristic large-scale spacing as an observable signature.</p>
+            </div>
+          </details>
+
+          <details class="term-card">
+            <summary>Repulsive void lensing</summary>
+            <div class="term-body">
+              <span class="term-label">EST interpretation</span>
+              <p>Deep voids are predicted to produce an enhanced negative weak-lensing convergence, appearing as a stronger defocusing signature than standard expectations.</p>
+            </div>
+          </details>
+
+        </div>
+
+        <div class="note">
+          <p><strong style="color: var(--accent);">Note:</strong> This page is a reader’s guide, not a substitute for the technical papers. Formal derivations and quantitative predictions are given in the EST preprints and supporting notes.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-note">
+    <div class="container">
+      © Jonathan E. Wilson · Elastic Spacetime Theory
+    </div>
+  </footer>
+</body>
+</html>
